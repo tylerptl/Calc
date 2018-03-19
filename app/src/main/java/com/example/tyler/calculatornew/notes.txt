@@ -1,0 +1,7 @@
+﻿Implement fade from bottom of textview to show where window begins/ends
+
+Add denotation lines between buttons - light blue of some sort
+
+√ crashes app - SQRRT returns -1.0
+
++/- multiply by -1
