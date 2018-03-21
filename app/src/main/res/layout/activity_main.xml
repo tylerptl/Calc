@@ -52,13 +52,13 @@
             android:textColor="@android:color/holo_blue_dark" />
 
         <Button
-            android:id="@+id/btnExpo"
+            android:id="@+id/btnDivide"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="4"
             android:background="@android:color/background_light"
-            android:onClick="onClickOperator"
-            android:text="y^x"
+            android:onClick="onClickNum"
+            android:text="/"
             android:textColor="@android:color/holo_blue_dark" />
     </LinearLayout>
 
@@ -225,6 +225,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@android:color/background_light"
+            android:onClick="onClickNum"
             android:text="."
             android:textColor="@android:color/holo_blue_dark" />
 

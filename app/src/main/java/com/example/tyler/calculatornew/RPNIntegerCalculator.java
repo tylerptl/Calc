@@ -1,11 +1,8 @@
 package com.example.tyler.calculatornew;
 
-import java.util.ArrayList;
-import java.util.List;
+public class RPNIntegerCalculator extends RPNCalculator<Double> {
 
-public class RPNIntegerCalculator extends RPNCalculator<Integer> {
-
-    protected Token<Integer> parseToken(String token){
+    protected Token<Double> parseToken(String token){
         switch(token) {
             case "+" :
                 return new AddInteger();
@@ -17,7 +14,7 @@ public class RPNIntegerCalculator extends RPNCalculator<Integer> {
                 return new DivideInteger();
             default :
                 try {
-                    return new Operand<>(Integer.decode(token));
+                    return new Operand<>(Double.parseDouble(token));
                 } catch (NumberFormatException e) {
                     throw new IllegalArgumentException("Invalid Reverse Polish Token Found: " + token, e);
                 }

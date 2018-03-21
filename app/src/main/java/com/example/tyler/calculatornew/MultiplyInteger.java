@@ -1,20 +1,20 @@
 package com.example.tyler.calculatornew;
 
-public class MultiplyInteger extends BinaryOperator<Integer>{
+public class MultiplyInteger extends BinaryOperator<Double>{
 
 
 
     @Override
-    protected Integer calc(Integer a, Integer b) {
+    protected Double calc(Double a, Double b) {
         double total = a*b;
 
 
-        if (total > Integer.MAX_VALUE) {
+        if (total > Double.MAX_VALUE) {
             throw new ArithmeticException("Integer value overflow");
         }
-        if (total < Integer.MIN_VALUE) {
+        if (total < Double.MIN_VALUE) {
             throw new ArithmeticException("Integer value underflow");
         }
-        return (int) total;
+        return total;
     }
 }

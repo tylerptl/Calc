@@ -1,17 +1,17 @@
 package com.example.tyler.calculatornew;
 
-public class DivideInteger extends BinaryOperator<Integer> {
+public class DivideInteger extends BinaryOperator<Double> {
 
     @Override
-    protected Integer calc(Integer a, Integer b) {
-        double total = a/b;
+    protected Double calc(Double a, Double b) {
+        Double total = a/b;
 
-        if (total > Integer.MAX_VALUE) {
+        if (total > Double.MAX_VALUE) {
             throw new ArithmeticException("Integer value overflow");
         }
-        if (total < Integer.MIN_VALUE) {
+        if (total < Double.MIN_VALUE) {
             throw new ArithmeticException("Integer value underflow");
         }
-        return (int) total;
+        return total;
     }
 }
