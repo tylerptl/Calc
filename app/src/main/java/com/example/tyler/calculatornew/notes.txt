@@ -5,3 +5,13 @@ Add denotation lines between buttons - light blue of some sort
 √ crashes app - SQRRT returns -1.0
 
 +/- multiply by -1
+
+How to make the textView scrollable/ make the window larger than display to allow users to see history if it exceeds boundaries
+
+Change length of gradient?
+
+Make 2nd () button
+
+Parentheses now work with a single set ie 9+(9+9) - crashes otherwise
+
+Calc crashes if screen is blank and PosNeg is pressed

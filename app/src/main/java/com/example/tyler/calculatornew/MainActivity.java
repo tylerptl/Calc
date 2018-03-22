@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.Stack;
 import java.util.StringJoiner;
 import java.util.regex.Pattern;
 
@@ -16,7 +17,10 @@ public class MainActivity extends AppCompatActivity {
     private String currentOperator = "";
     private String result = "";
     private String tempStr= "";
-    private String eq = "";
+    private boolean isNeg =false;  // if the following number is not negative, this will allow it to become negative
+    //private String eq = "";
+    Stack parenthStack = new Stack();
+   // private boolean nextIsRightPar = false;         // Checks need for ) instead of (
     String regex = "(?<=op)|(?=op)".replace("op", "[-+*/()]");
     RPNIntegerCalculator calc = new RPNIntegerCalculator();
     ReversePolishNotation rpn = new ReversePolishNotation();
@@ -37,13 +41,66 @@ public class MainActivity extends AppCompatActivity {
         }
         Button b = (Button) v;
         display+= b.getText();
-        eq += b.getText();
+        //eq += b.getText();
         updateScreen();
+        //nextIsRightPar = true;
+    }
+    public void onClickOperator(View v){
+        if(display == "") {
+            clear();
+            updateScreen();
+        }
+        Button b = (Button) v;
+        display+= b.getText();
+      //  eq += b.getText();
+        updateScreen();
+       // nextIsRightPar = false;
+    }
+    public void onClickParentheses(View v){
+        if(parenthStack.isEmpty()){
+            display += "(";
+            //eq += "(";
+            parenthStack.push("(");
+            updateScreen();
+
+        }else if(isOperator(display.charAt(display.length()-1))|| display.charAt(display.length()-1) == '(' ||display.charAt(display.length()-1) == 'L'){
+            display += "(";
+            //eq += "(";
+            parenthStack.push("(");
+            updateScreen();
+//        }else if(!isOperator(display.charAt(display.length()-1)) && parenthStack.peek().equals('(')){
+//            display += "R";
+//            eq = ")";
+//            parenthStack.pop();
+//            updateScreen();
+        }else{
+            display +=")";
+            //eq += ")";
+            parenthStack.pop();
+            updateScreen();
+        }
+
+    }
+    public void onClickPosNeg(View v){
+        if(display == "") {
+            clear();
+            updateScreen();
+        }
+
+        if(display.charAt(display.length()-1)=='+'){
+            display = display.substring(0, display.length()-1) + '-';
+            updateScreen();
+            isNeg = true;
+        }else if(display.charAt(display.length()-1)=='-'){
+            display = display.substring(0, display.length()-1) + '+';
+        }else{
+            display += '-';
+        }
     }
 
     public void onClickEquals(View v){
         if(display == "") return; // Empty screen check
-        String[] arr = eq.split(regex);
+        String[] arr = display.split(regex);
         String[] rpnArr = rpn.infixToRPN(arr);
         StringJoiner joiner = new StringJoiner(" ");
 
@@ -115,7 +172,10 @@ public class MainActivity extends AppCompatActivity {
         display = "";
         currentOperator = "";
         result = "";
-        eq= "";
+        //eq= "";
+        while(!parenthStack.isEmpty()){
+            parenthStack.pop();
+        }
     }
 
     public void onClickClear(View v){
