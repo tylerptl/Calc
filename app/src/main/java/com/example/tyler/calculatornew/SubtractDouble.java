@@ -1,6 +1,6 @@
 package com.example.tyler.calculatornew;
 
-public class SubtractInteger extends BinaryOperator<Double>{
+public class SubtractDouble extends BinaryOperator<Double>{
 
     @Override
     protected Double calc(Double a, Double b){

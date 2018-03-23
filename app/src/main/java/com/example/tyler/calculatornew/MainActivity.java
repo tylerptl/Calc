@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private String tempStr= "";
     private Stack parenthStack = new Stack();
 
-    String regex = "(?<=op)|(?=op)".replace("op", "[-+*/()]");
+    String regex = "(?<=op)|(?=op)".replace("op", "[-+*/()^]");
     RPNIntegerCalculator calc = new RPNIntegerCalculator();
     ReversePolishNotation rpn = new ReversePolishNotation();
 
@@ -51,12 +51,26 @@ public class MainActivity extends AppCompatActivity {
 
     }
     public void onClickOperator(View v){
+        if(display == "" || display == " ") {
+            clear();
+            updateScreen();
+        }
+        if(display.length() == 0){
+            clear();
+            updateScreen();
+        }else {
+            Button b = (Button) v;
+            display += b.getText();
+            updateScreen();
+        }
+    }
+
+    public void onClickExponent(View v){
         if(display == "") {
             clear();
             updateScreen();
         }
-        Button b = (Button) v;
-        display+= b.getText();
+        display += '^';
         updateScreen();
     }
 
@@ -122,6 +136,7 @@ public class MainActivity extends AppCompatActivity {
         String rpnStr = joiner.toString();
         result = calc.evaluate(rpnStr).toString();
         _screen.setText(display + "\n" + String.valueOf(result));
+        display = result;
 
 
 

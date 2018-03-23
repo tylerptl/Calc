@@ -5,13 +5,15 @@ public class RPNIntegerCalculator extends RPNCalculator<Double> {
     protected Token<Double> parseToken(String token){
         switch(token) {
             case "+" :
-                return new AddInteger();
+                return new AddDouble();
             case "-" :
-                return new SubtractInteger();
+                return new SubtractDouble();
             case "*" :
-                return new MultiplyInteger();
+                return new MultiplyDouble();
             case "/" :
-                return new DivideInteger();
+                return new DivideDouble();
+            case "^":
+                return new ExponentDouble();
             default :
                 try {
                     return new Operand<>(Double.parseDouble(token));

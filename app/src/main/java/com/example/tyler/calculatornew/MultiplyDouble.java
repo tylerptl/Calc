@@ -1,6 +1,6 @@
 package com.example.tyler.calculatornew;
 
-public class MultiplyInteger extends BinaryOperator<Double>{
+public class MultiplyDouble extends BinaryOperator<Double>{
 
 
 

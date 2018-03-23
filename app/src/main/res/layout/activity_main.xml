@@ -46,13 +46,13 @@
             android:textSize="20sp" />
 
         <Button
-            android:id="@+id/btnSqrrt"
+            android:id="@+id/btnExponent"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="4"
             android:background="@android:color/background_light"
-            android:onClick="onClickNum"
-            android:text="√"
+            android:onClick="onClickExponent"
+            android:text="y^x"
             android:textColor="@android:color/holo_blue_dark"
             android:textSize="20sp" />
 
@@ -62,7 +62,7 @@
             android:layout_height="match_parent"
             android:layout_weight="4"
             android:background="@android:color/background_light"
-            android:onClick="onClickNum"
+            android:onClick="onClickOperator"
             android:text="/"
             android:textColor="@android:color/holo_blue_dark"
             android:textSize="20sp" />
@@ -113,7 +113,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@android:color/background_light"
-            android:onClick="onClickNum"
+            android:onClick="onClickOperator"
             android:text="+"
             android:textColor="@android:color/holo_blue_dark"
             android:textSize="20sp" />
@@ -164,7 +164,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@android:color/background_light"
-            android:onClick="onClickNum"
+            android:onClick="onClickOperator"
             android:text="-"
             android:textColor="@android:color/holo_blue_dark"
             android:textSize="20sp" />
@@ -215,7 +215,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@android:color/background_light"
-            android:onClick="onClickNum"
+            android:onClick="onClickOperator"
             android:text="*"
             android:textColor="@android:color/holo_blue_dark"
             android:textSize="20sp" />

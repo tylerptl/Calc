@@ -1,10 +1,11 @@
 package com.example.tyler.calculatornew;
 
-public class DivideInteger extends BinaryOperator<Double> {
 
+
+public class ExponentDouble extends BinaryOperator<Double>{
     @Override
     protected Double calc(Double a, Double b) {
-        Double total = a/b;
+        Double total = Math.pow(a,b);
 
         if (total > Double.MAX_VALUE) {
             throw new ArithmeticException("Integer value overflow");

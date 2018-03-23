@@ -1,6 +1,6 @@
 package com.example.tyler.calculatornew;
 
-public class AddInteger extends BinaryOperator<Double> {
+public class AddDouble extends BinaryOperator<Double> {
 
 
     @Override
